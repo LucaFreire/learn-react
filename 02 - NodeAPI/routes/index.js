@@ -1,9 +1,13 @@
 const bodyParser = require('body-parser')
-const endPoints = require('./endPoints')
+const get = require('./get')
+const post = require('./post')
+const desafio = require('./Desafio')
 
 module.exports = (app) => {
     app.use(
-        bodyParser.json(),
-        endPoints,
+        bodyParser.json(), // to read all the post jsons
+        get,
+        post,
+        desafio
     )
 }
