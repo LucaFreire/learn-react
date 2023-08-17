@@ -1,0 +1,3 @@
+{
+    "db": "mongobf://localhost:27017/"
+}

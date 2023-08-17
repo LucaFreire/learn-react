@@ -50,7 +50,6 @@ router
         list.slice(id, 1)
         return res.status(200)
     })
-
     .put('/cars/put', (req, res) => {
         const { name, year } = req.body;
 
