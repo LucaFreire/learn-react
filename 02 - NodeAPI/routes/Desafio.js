@@ -2,66 +2,75 @@
 
 const express = require('express')
 const router = express.Router()
-
-list = []
-
-class Car {
-    constructor(id, name, year) {
-        this.id = id,
-            this.name = name,
-            this.year = year
-    }
-}
-
+const Car = require('../models/car')
 router
-    .get('/cars/get', (req, res) => {
-        return res.status(200).send(list)
+    .get('/cars/get', async (req, res) => {
+        try {
+            const data = await Car.find()
+            return res.status(200).send(data)
+        } catch (error) {
+            res.status(400).send({ error: error })
+        }
     })
-    .get('/cars/get/:Id', (req, res) => {
+    .get('/cars/get/:Id', async (req, res) => {
         const { Id } = req.params;
+        if (!Id)
+            return res.status(400).send({ message: "Id is Null" })
 
-        return res.status(200).send(list.find(element => element.id == Id))
+        try {
+            const data = await Car.findById(Id)
+            return res.status(200).send(data)
+        } catch (error) {
+            return res.status(400).send({ error: error })
+        }
     })
-    .post('/cars/post', (req, res) => {
+    .post('/cars/post', async (req, res) => {
         const { name, year } = req.body;
 
-        const car = new Car(list.length + 1, name, year)
+        const car = {
+            name: name,
+            year: year
+        }
+        if (!car.name || !car.year)
+            return res.status(400).send({ message: "Invalid Input!" })
 
-        list.push(car)
+        try {
+            const content = await Car.create(car)
+            return res.status(200).send(content)
+        } catch (error) {
+            res.status(400).send({ error: error })
+        }
 
         return res.status(200).send("Added")
     })
-    .delete('/cars/delete', (req, res) => {
-        const { name, year } = req.body;
+    .delete('/cars/delete/:Id', async (req, res) => {
+        const Id = req.params;
+        if (!Id)
+            return res.status(400).send({ message: 'Id is Null!' })
 
-        const car = new Car(list.length + 1, name, year)
-
-        list.forEach(element => {
-            if (element.id == car.id) {
-                list.remove(element)
-                return res.status(200)
-            }
-        });
-        return res.status(404).send({ message: "car not found" })
-
-    })
-    .delete('/cars/delete/:Id', (req, res) => {
-        const { id } = req.body;
-        list.slice(id, 1)
-        return res.status(200)
-    })
-    .put('/cars/put', (req, res) => {
-        const { name, year } = req.body;
-
-        const car = new Car(list.length + 1, name, year)
-
-        for (let i = 0; i < array.length; i++) {
-            if (list[i].id == car.id) {
-                list[i] = car
-                return res.status(200)
-            }
+        try {
+            const content = await Car.findByIdAndRemove(Id)
+            return res.status(200).send(content)
+        } catch (error) {
+            return res.status(400).send({ error: error })
         }
-        return res.status(404).send({ message: "car not found" })
+    })
+    .patch('/cars/patch/:Id', async (req, res) => {
+
+        const Id = req.params;
+        if (!Id)
+            return res.status(400).send({ error: "Id is Null!" })
+
+        const car = req.body
+        if (!car.name || !car.year)
+            return res.status(400).send({ error: "Invalid Input!" })
+
+        try {
+            const content = await Car.findByIdAndUpdate(Id, car)
+            return res.status(200).send(content)
+        } catch (error) {
+            return res.status(400).send({ error: error })
+        }
     })
 
 module.exports = router
