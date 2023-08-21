@@ -3,7 +3,7 @@ const app = express()
 const routes = require('./routes')
 
 require('./startup/db')();
-
+require('./startup/routes')(app);
 const port = 5000;
 routes(app)
 
