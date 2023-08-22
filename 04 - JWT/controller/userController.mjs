@@ -23,9 +23,9 @@ class UsersController {
 
         try {
             const result = await Users.create(person);
-            return res.status(200).json(result);
+            return res.status(200).send(result);
         } catch (error) {
-            return res.status(500).json({ error: error });
+            return res.status(500).send({ error: error });
         }
     }
 

@@ -3,7 +3,7 @@ import Sports from "../model/sports.mjs"
 
 const router = express.Router()
 
-router.get("/sports/get", async (req, res) => {
+router.get("/get", async (req, res) => {
     console.log("sports get");
     try {
         const data = await Sports.find()
@@ -13,7 +13,7 @@ router.get("/sports/get", async (req, res) => {
     }
 })
 
-router.post("/sports/post", async (req, res) => {
+router.post("/post", async (req, res) => {
     console.log("sports post")
 
     const { name, qtdPlayers } = req.body
