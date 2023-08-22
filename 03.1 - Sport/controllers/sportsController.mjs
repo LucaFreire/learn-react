@@ -1,36 +1,33 @@
-import express from "express"
 import Sports from "../model/sports.mjs"
 
-const router = express.Router()
 
-router.get("/get", async (req, res) => {
-    console.log("sports get");
-    try {
-        const data = await Sports.find()
-        return res.status(200).send(data)
-    } catch (error) {
-        return res.status(400).send({ error: error })
+class SportsController {
+
+    static async getAll(req, res) {
+        try {
+            const data = await Sports.find()
+            return res.status(200).send(data)
+        } catch (error) {
+            return res.status(400).send({ error: error })
+        }
     }
-})
+    static async create(req, res) {
+        const { name, qtdPlayers } = req.body
+        const sport = {
+            name: name,
+            qtdPlayers: qtdPlayers
+        }
 
-router.post("/post", async (req, res) => {
-    console.log("sports post")
+        if (!sport.name || !sport.qtdPlayers)
+            return res.status(401).send({ message: "Invalid Input." })
 
-    const { name, qtdPlayers } = req.body
-    const sport = {
-        name: name,
-        qtdPlayers: qtdPlayers
+        try {
+            const content = await Sports.create(sport)
+            return res.status(200).send(content)
+        } catch (error) {
+            return res.status(400).send({ error: error })
+        }
     }
+}
 
-    if (!sport.name || !sport.qtdPlayers)
-        return res.status(401).send({ message: "Invalid Input." })
-
-    try {
-        const content = await Sports.create(sport)
-        return res.status(200).send(content)
-    } catch (error) {
-        return res.status(400).send({ error: error })
-    }
-})
-
-export default router
+export default SportsController

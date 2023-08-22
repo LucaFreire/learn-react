@@ -1,9 +1,11 @@
 import express from "express";
-import sports from "../model/sports.mjs";
+import Sports from "../routes/sports.mjs";
 import bodyParser from "body-parser";
 
-function StartupRoutes(app) {
+function startupRoutes(app) {
+    app.use('/sports', Sports)
     app.use(express.json())
     app.use(bodyParser)
-    app.use('/sport', sports)
 }
+
+export default startupRoutes
