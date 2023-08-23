@@ -11,9 +11,11 @@ function validateCpf(cpf) {
         somaDig1 += (Number(cpfSplit[i]) * (10 - i));
     }
 
-    var modNum1 = 11 - (somaDig1 % 11);
+    var resto = somaDig1 % 11;
+    var modNum1 = resto < 2 ? 0 : 11 - resto;
     if (modNum1 != cpfSplit[9])
         return false;
+
 
     var somaDig2 = 0;
     for (let i = 0; i < cpfSplit.length - 1; i++) {
