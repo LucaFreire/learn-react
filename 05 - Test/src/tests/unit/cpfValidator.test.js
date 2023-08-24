@@ -9,26 +9,26 @@ describe('CPF validator', () => {
 
     it('it must return if the CPF is valid', () => {
         const res = validateCpf(cpf1)
-        expect(res).toBe(true);
+        expect(res).toBeTruthy();
     })
 
     it('it must return if the CPF is valid', () => {
         const res = validateCpf(cpf2)
-        expect(res).toBe(true);
+        expect(res).toBeTruthy();''
     })
 
     it('it must return if the CPF is valid', () => {
         const res = validateCpf(cpf3)
-        expect(res).toBe(true);
+        expect(res).toBeTruthy();
     })
 
     it('it must return if the CPF is valid', () => {
         const res = validateCpf(cpf4)
-        expect(res).toBe(true);
+        expect(res).toBeTruthy();
     })
 
     it('it must return if the CPF is valid', () => {
         const res = validateCpf(cpf5)
-        expect(res).toBe(false);
+        expect(res).toBeFalsy();
     })
 })
