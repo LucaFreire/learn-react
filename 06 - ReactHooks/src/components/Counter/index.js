@@ -3,14 +3,12 @@ import { useEffect, useState } from "react";
 export default function Counter() {
 
     const [show, setShow] = useState(false);
-    const array = ["Titulo 1", "Titulo 2", "Titulo 3"]
-    var counter = 0;
+    var counter = 1;
 
     useEffect(() => {
         const timer = setInterval(() => {
-            document.title = array[counter];
+            document.title = `Titulo ${counter}`
             counter++;
-            counter = counter > 2 ? 0 : counter;
             setShow(true);
         }, 5000)
         return () => clearInterval(timer)
