@@ -1,6 +1,6 @@
-import moongose from 'mongoose'
+import mongoose from "mongoose"
 
-const Sports = moongose.model('Sports', {
+const Sports = mongoose.model('Sports', {
     name: String,
     qtdPlayers: Number
 })
