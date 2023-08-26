@@ -6,8 +6,8 @@
 #add-button {
     background-color: rgb(141, 235, 141);
     border-radius: 15px;
-    width: 300px;
-    height: 50px;
+    width: 70px;
+    height: 75px;
     font-size: 30px;
     border: 0;
     cursor: pointer;
@@ -21,9 +21,21 @@
 h3 {
     color: purple;
 }
-#switch-value {
-    color: black;
 
+#switch-value {
+    width: 30px;
+    padding: 5px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: rgb(163, 248, 187);
+    transition: .3s;
+}
+
+#switch-value:hover {
+    background-color: rgb(10, 226, 71);
+    transition: .3s;
 }
 
 #input-task {
@@ -36,11 +48,39 @@ h3 {
     outline: 0;
 }
 
-#remove-btn {
-
-
-
+#remove-button {
+    width: 30px;
+    padding: 5px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: rgb(226, 100, 100);
+    transition: .3s;
 }
 
+#remove-button:hover {
+    background-color: red;
+}
 
+.section {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    gap: 15px;
+    background-color: #343232;
+    padding: 10px;
+    border-radius: 10px;
+}
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

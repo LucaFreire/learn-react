@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { NotDone, Done } from './styled';
 import './style.css'
+import liexira from '../../imgs/lixeira.png'
+import done from '../../imgs/done.png'
+import undone from '../../imgs/undone.png'
 
 export default function ToDoList() {
 
@@ -42,8 +45,10 @@ export default function ToDoList() {
             return (
                 <div className='section'>
                     {!item.IsDone ? <NotDone>{item.Task}</NotDone> : <Done>{item.Task}</Done>}
-                    <button id='switch-value' onClick={() => SwitchValue(item)}>{item.IsDone ? "Undone" : "Done"}</button>
-                    <button id='remove-btn' onClick={() => Remove(item)}>Remove</button>
+                    <div className='buttons'>
+                        <img id='switch-value' src={item.IsDone ? done : undone} onClick={() => SwitchValue(item)} />
+                        <img id='remove-button' onClick={() => Remove(item)} src={liexira} />
+                    </div>
                 </div>
             )
         })
@@ -53,8 +58,10 @@ export default function ToDoList() {
         <>
             <h1>ToDo List</h1>
             <h3>Add your Task</h3>
-            <input id='input-task' value={currentInput} onChange={(sender) => setCurrentInput(sender.target.value)}></input>
-            <button id="add-button" onClick={() => AddAtList()}>Add</button>
+            <div className='main-section'>
+                <input id='input-task' value={currentInput} onChange={(sender) => setCurrentInput(sender.target.value)}></input>
+                <button id="add-button" onClick={() => AddAtList()}>+</button>
+            </div>
             {RenderList()}
         </>
     );
