@@ -5,18 +5,21 @@ import Click from './components/Click';
 import Calculator from './components/Calculator';
 import Counter from './components/Counter';
 import ToDoList from './components/ToDoList';
+import NotFoundPage from './components/NotFoundPage';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <>
-        <Routes>
-          <Route path='/TextOnChange' element={<TextOnChange />} />
-          <Route path='/Click' element={<Click />} />
-          <Route path='/Calculator' element={<Calculator />} />
-          <Route path='/Counter' element={<Counter />} />
-          <Route path='/ToDoList' element={<ToDoList />} />
-          {/* <Route path='*' element={<ToDoList />} /> not found*/}
-        </Routes>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='*' element={<NotFoundPage />} />
+        <Route path='/TextOnChange' element={<TextOnChange />} />
+        <Route path='/Click' element={<Click />} />
+        <Route path='/Calculator' element={<Calculator />} />
+        <Route path='/Counter' element={<Counter />} />
+        <Route path='/ToDoList' element={<ToDoList />} />
+      </Routes>
     </>
   );
 }
