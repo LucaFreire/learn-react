@@ -24,7 +24,9 @@ export default function Counter() {
 
     return (
         <>
-            <h3>{show ? `Titulo Alterado para ${document.title}` : ""}</h3>
+            <div className="main">
+                <h3>{show ? `Titulo Alterado para ${document.title}` : ""}</h3>
+            </div>
         </>
     );
 }

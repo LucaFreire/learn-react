@@ -7,11 +7,13 @@ export default function Click() {
 
     return (
         <>
+        <div className='main'>
             <h1>Clicker</h1>
             {num}
             <br />
             <button onClick={() => { setNum(num + 1); }}>Add</button>
             <button onClick={() => { setNum(num - 1); }}>Decrement</button>
+        </div>
         </>
     );
 }

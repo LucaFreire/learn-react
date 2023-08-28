@@ -46,7 +46,7 @@ export default function ToDoList() {
                 <div className='section'>
                     {!item.IsDone ? <NotDone>{item.Task}</NotDone> : <Done>{item.Task}</Done>}
                     <div className='buttons'>
-                        <img id='switch-value' src={item.IsDone ? done : undone} onClick={() => SwitchValue(item)} />
+                        <img id='switch-value' src={!item.IsDone ? done : undone} onClick={() => SwitchValue(item)} />
                         <img id='remove-button' onClick={() => Remove(item)} src={liexira} />
                     </div>
                 </div>
@@ -56,11 +56,13 @@ export default function ToDoList() {
 
     return (
         <>
-            <h1>ToDo List</h1>
-            <h3>Add your Task</h3>
-            <div className='main-section'>
-                <input id='input-task' value={currentInput} onChange={(sender) => setCurrentInput(sender.target.value)}></input>
-                <button id="add-button" onClick={() => AddAtList()}>+</button>
+            <div className='main'>
+                <h1>ToDo List</h1>
+                <h3>Add your Task</h3>
+                <div className='main-section'>
+                    <input id='input-task' value={currentInput} onChange={(sender) => setCurrentInput(sender.target.value)}></input>
+                    <button id="add-button" onClick={() => AddAtList()}>+</button>
+                </div>
             </div>
             {RenderList()}
         </>

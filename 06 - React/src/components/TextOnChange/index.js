@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import './styles.css'
 
-export default function TextOnChange() { 
+export default function TextOnChange() {
 
     const [text, setText] = useState('')
-    return(
+    return (
         <>
-            <label>Fill</label>
-            <input onChange={(sender) => setText(sender.target.value)}/>
-            <button onClick={(sender) => console.log(text)}>Send</button>
+            <div className='main'>
+                <label>Fill</label>
+                <input onChange={(sender) => setText(sender.target.value)} />
+                <button onClick={() => console.log(text)}>Send</button>
+            </div>
         </>
     );
 }
