@@ -1,5 +1,8 @@
 import './App.css';
 import { Route, Router, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom';
+
+import { CounterProvider  } from './context/counter';
+
 import TextOnChange from './Pages/TextOnChange';
 import Click from './Pages/Click';
 import Calculator from './Pages/Calculator';
