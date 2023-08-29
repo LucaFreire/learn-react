@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './style.css'
 
 export default function Counter() {
 
@@ -24,7 +25,7 @@ export default function Counter() {
 
     return (
         <>
-            <div className="main">
+            <div className="main-counter">
                 <h3>{show ? `Titulo Alterado para ${document.title}` : ""}</h3>
             </div>
         </>

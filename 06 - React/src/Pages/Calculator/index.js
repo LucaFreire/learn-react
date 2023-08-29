@@ -9,7 +9,7 @@ export default function Calculator() {
 
     return (
 
-        <div class="main">
+        <div class="main-calculator">
             <label>Number 1</label>
             <input onChange={(sender) => setNum1(Number(sender.target.value))} />
             <br />

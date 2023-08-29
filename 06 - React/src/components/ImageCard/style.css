@@ -1,0 +1,12 @@
+.main-img-card {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    gap: 50px;
+    background-color: rgb(194, 194, 202);
+}
+
+.teste {
+    display: flex;
+    gap: 50px;
+}

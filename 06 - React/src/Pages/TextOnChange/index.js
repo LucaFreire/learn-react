@@ -6,7 +6,7 @@ export default function TextOnChange() {
     const [text, setText] = useState('')
     return (
         <>
-            <div className='main'>
+            <div className='main-text-on-change'>
                 <label>Fill</label>
                 <input onChange={(sender) => setText(sender.target.value)} />
                 <button onClick={() => console.log(text)}>Send</button>

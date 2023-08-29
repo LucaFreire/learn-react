@@ -56,15 +56,15 @@ export default function ToDoList() {
 
     return (
         <>
-            <div className='main'>
+            <div className='main-to-do-list'>
                 <h1>ToDo List</h1>
                 <h3>Add your Task</h3>
                 <div className='main-section'>
                     <input id='input-task' value={currentInput} onChange={(sender) => setCurrentInput(sender.target.value)}></input>
                     <button id="add-button" onClick={() => AddAtList()}>+</button>
                 </div>
+                {RenderList()}
             </div>
-            {RenderList()}
         </>
     );
 }
