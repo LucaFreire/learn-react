@@ -3,6 +3,7 @@ import Transaction from "../model/Transaction.mjs";
 class TransactionController {
 
     static async getAll(req, res) {
+        console.log("gett");
         try {
             const data = await Transaction.find();
             return res.status(200).send(data);
@@ -13,6 +14,8 @@ class TransactionController {
 
     static async create(req, res) {
         const { Name, Value } = req.body;
+        console.log("postt");
+
 
         if (!Name || !Value)
             return res.status(400).send({ message: "Bad Request" });
