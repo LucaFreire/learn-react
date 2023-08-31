@@ -13,12 +13,8 @@ class SportsController {
     }
     static async create(req, res) {
         console.log(req.body);
-<<<<<<< HEAD
-        const { name, qtdPlayers } = req.body;
-=======
         const { name, qtdPlayers } = req.body
         
->>>>>>> 5daa17dcbb7b7e3aae5d80486b2de1b4cd7ef092
         const sport = {
             name: name,
             qtdPlayers: qtdPlayers
