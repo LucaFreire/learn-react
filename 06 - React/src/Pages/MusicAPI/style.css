@@ -1,0 +1,18 @@
+.main-music-api {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95vw;
+    height: 100vh;
+}
+
+.inputs-music-api {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#post-btn {
+    width: 200px;
+    height: 40px;
+}

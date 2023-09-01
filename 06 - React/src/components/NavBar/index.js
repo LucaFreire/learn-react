@@ -16,9 +16,6 @@ export default function NavBar() {
                     <NavLink to="/Calculator">
                         Calculator
                     </NavLink>
-                    <NavLink to="/TextOnChange">
-                        TextOnChange
-                    </NavLink>
                     <NavLink to="/Click">
                         Click
                     </NavLink>
@@ -27,6 +24,9 @@ export default function NavBar() {
                     </NavLink>
                     <NavLink to="/Coffee">
                         Coffee
+                    </NavLink>
+                    <NavLink to="/MusicAPI">
+                        MusicAPI
                     </NavLink>
                 </Container>
             </Navbar>
