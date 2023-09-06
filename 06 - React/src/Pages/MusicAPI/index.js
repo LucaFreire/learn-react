@@ -33,8 +33,6 @@ export default function MusicAPI() {
         setYear(0);
     }
 
-
-
     return (<>
         <div className="main-music-api">
             <div className="inputs-music-api">

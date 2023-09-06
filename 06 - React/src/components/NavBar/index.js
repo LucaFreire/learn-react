@@ -28,6 +28,9 @@ export default function NavBar() {
                     <NavLink to="/MusicAPI">
                         MusicAPI
                     </NavLink>
+                    <NavLink to="/CountriesAPI">
+                        CountriesAPI
+                    </NavLink>
                 </Container>
             </Navbar>
         </>);

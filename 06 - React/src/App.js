@@ -10,6 +10,7 @@ import HomePage from './Pages/HomePage';
 import NavBar from './components/NavBar';
 import Coffe from './Pages/Coffee';
 import MusicAPI from './Pages/MusicAPI';
+import Countries from './Pages/Countries';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/Counter' element={<Counter />} />
         <Route path='/ToDoList' element={<ToDoList />} />
         <Route path='/Coffee' element={<Coffe />} />
+        <Route path='/CountriesAPI' element={<Countries />} />
       </Routes>
     </>
   );
