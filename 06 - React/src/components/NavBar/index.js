@@ -31,6 +31,9 @@ export default function NavBar() {
                     <NavLink to="/CountriesAPI">
                         CountriesAPI
                     </NavLink>
+                    <NavLink to="/Register">
+                        Register
+                    </NavLink>
                 </Container>
             </Navbar>
         </>);

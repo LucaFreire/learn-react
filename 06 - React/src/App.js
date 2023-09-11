@@ -11,13 +11,24 @@ import NavBar from './components/NavBar';
 import Coffe from './Pages/Coffee';
 import MusicAPI from './Pages/MusicAPI';
 import Countries from './Pages/Countries';
+import Register from './Pages/Register';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './Pages/Login';
+import Denied from './Pages/Denied';
 
 function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<Login />} />
+        <Route path='main' element={
+          <ProtectedRoute
+            Denied={<Denied />}
+            Target={<NavBar />} />
+        }>
+          <Route path='' element={<HomePage />} />
+        </Route>
         <Route path='*' element={<NotFoundPage />} />
         <Route path='/MusicAPI' element={<MusicAPI />} />
         <Route path='/Click' element={<Click />} />
@@ -26,6 +37,7 @@ function App() {
         <Route path='/ToDoList' element={<ToDoList />} />
         <Route path='/Coffee' element={<Coffe />} />
         <Route path='/CountriesAPI' element={<Countries />} />
+        <Route path='/Register' element={<Register />} />
       </Routes>
     </>
   );

@@ -1,20 +1,21 @@
 import Users from '../model/user.mjs'
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 class authController {
 
     static async register(req, res) {
         const { name, password } = req.body;
-
         const passwordHash = await bcrypt.hash(password, 12);
 
         const user = new Users({
-            name,
-            passwordHash
+            name: name,
+            password: passwordHash
         })
 
         try {
-            await user.save();
-            res.status(200).send({ message: "created" })
+            const userr = await user.save();
+            res.status(200).send(userr)
         } catch (error) {
             res.status(500).send({ error: error })
         }
@@ -46,6 +47,7 @@ class authController {
             );
             return res.status(200).send({ token: token })
         } catch (error) {
+            console.log(error)
             res.status(500).send({ error: error })
         }
     }
