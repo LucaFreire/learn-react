@@ -1,0 +1,24 @@
+getById
+{
+    "Id": "64f726c26d63a8abbc1800b2"
+}
+
+create
+{
+    "Name": "Alisson Ferreira Recordsss",
+    "Address": "Curitirba",
+    "CNPJ": "123123123"
+}
+
+deleteById
+{
+    "Id": "64f727d3eae38f04378c60d1"
+}
+
+update
+{
+    "Id": "64f727d3eae38f04378c60d1",
+    "Name": "Name",
+    "Address": "Address",
+    "CNPJ": "CNPJ"
+}
