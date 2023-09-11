@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import axios from "axios";
 import CountryCard from "../../components/CountryCard";
+import './style.css';
 
 export default function Countries() {
     const [country, setCountry] = useState('');
@@ -39,8 +40,8 @@ export default function Countries() {
             <div className="inputs-countries-api">
                 <input type="text" placeholder="Country Name" value={country} onChange={(e) => setCountry(e.target.value)}></input>
                 <button id="post-countries-api" onClick={() => handleCountryMusic()}>Search</button>
+                <CountryCard capital={capitalName} currency={currencyName} flag={flagPng} languages={languagesName} name={countryName} subregion={subregion}></CountryCard>
             </div>
-            <CountryCard capital={capitalName} currency={currencyName} flag={flagPng} languages={languagesName} name={countryName} subregion={subregion}></CountryCard>
         </div>
     </>);
 }
