@@ -1,6 +1,8 @@
 import './style.css';
 import axios from 'axios';
 import { useCallback, useState } from 'react';
+import CryptoJS from 'crypto-js';
+import env from 'react-dotenv';
 
 export default function Register() {
 
@@ -12,8 +14,15 @@ export default function Register() {
         if (!password || !name)
             return;
 
-        const res = await axios.post('http://localhost:1000/auth/register', { name: name, password: password })
-        console.log(res);
+        var encryptPassword = CryptoJS.AES.encrypt(password, 'testeafssdfsdfewfersdfsdffd').toString(); // TODO: .env
+
+        try {
+            const res = await axios.post('http://localhost:1000/auth/register', { name: name, password: encryptPassword })
+            console.log(res);
+
+        } catch (error) {
+            console.log(error);
+        }
     });
 
     return (<>
