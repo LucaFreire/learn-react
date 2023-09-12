@@ -1,12 +1,16 @@
 import Users from '../model/user.mjs'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import CryptoJS from 'crypto-js';
 
 class authController {
 
     static async register(req, res) {
         const { name, password } = req.body;
-        const passwordHash = await bcrypt.hash(password, 12);
+        
+        var bytes = CryptoJS.AES.decrypt(password, process.env.PASSWORDSECRET);
+        var originalPassword = bytes.toString(CryptoJS.enc.Utf8);
+        const passwordHash = await bcrypt.hash(originalPassword, 12);
 
         const user = new Users({
             name: name,
@@ -25,15 +29,18 @@ class authController {
         const { name, password } = req.body;
 
         if (!name || !password)
-            return res.status(401).send({ message: "Null Input" })
+            return res.status(401).send({ message: "Null Input" });
 
         try {
-            const user = await Users.findOne({ name })
+            const user = await Users.findOne({ name: name });
             if (!user)
-                return res.status(400).send({ message: "Not found" })
+                return res.status(400).send({ message: "Not found" });
 
-            if (!await bcrypt.compare(password, user.password))
-                return res.status(400).send({ message: "Not found" })
+
+            var bytes = CryptoJS.AES.decrypt(password, process.env.PASSWORDSECRET).toString();
+
+            if (!bcrypt.compare(bytes, user.password))
+                return res.status(400).send({ message: "Not found" });
 
             const secret = process.env.SECRET;
             const token = jwt.sign(
