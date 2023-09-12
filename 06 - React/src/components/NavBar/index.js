@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from './styled';
+import { Outlet } from 'react-router-dom';
 
 export default function NavBar() {
     return (
@@ -31,10 +32,8 @@ export default function NavBar() {
                     <NavLink to="/CountriesAPI">
                         CountriesAPI
                     </NavLink>
-                    <NavLink to="/Register">
-                        Register
-                    </NavLink>
                 </Container>
             </Navbar>
+            <Outlet></Outlet>
         </>);
 }

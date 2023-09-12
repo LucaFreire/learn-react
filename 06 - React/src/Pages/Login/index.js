@@ -1,24 +1,26 @@
 import { useCallback, useEffect, useState } from "react";
 import jwt_decode from 'jwt-decode';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [notFound, setNotFound] = useState(false);
+    const navigate = useNavigate();
 
     const handleLogin = useCallback(async () => {
 
         if (!password || !name)
             return;
 
-        console.log(name);
-        console.log(password);
         try {
             const res = await axios.post('http://localhost:1000/auth/login', { name: name, password: password })
-            console.log(res.data);
+            sessionStorage.setItem('token', res.data.token);
             setNotFound(false);
+            navigate('home');
+
         } catch (error) {
             setNotFound(true);
             console.log(error);

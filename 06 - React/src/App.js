@@ -19,25 +19,26 @@ import Denied from './Pages/Denied';
 function App() {
   return (
     <>
-      {/* <NavBar /> */}
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='main' element={
+        <Route path='' element={
           <ProtectedRoute
             Denied={<Denied />}
             Target={<NavBar />} />
         }>
-          <Route path='' element={<HomePage />} />
+          <Route path='MusicAPI' element={<MusicAPI />} />
+          <Route path='Click' element={<Click />} />
+          <Route path='Calculator' element={<Calculator />} />
+          <Route path='Counter' element={<Counter />} />
+          <Route path='ToDoList' element={<ToDoList />} />
+          <Route path='Coffee' element={<Coffe />} />
+          <Route path='CountriesAPI' element={<Countries />} />
+          <Route path='Register' element={<Register />} />
+          <Route path='home' element={<HomePage />} />
         </Route>
+
         <Route path='*' element={<NotFoundPage />} />
-        <Route path='/MusicAPI' element={<MusicAPI />} />
-        <Route path='/Click' element={<Click />} />
-        <Route path='/Calculator' element={<Calculator />} />
-        <Route path='/Counter' element={<Counter />} />
-        <Route path='/ToDoList' element={<ToDoList />} />
-        <Route path='/Coffee' element={<Coffe />} />
-        <Route path='/CountriesAPI' element={<Countries />} />
-        <Route path='/Register' element={<Register />} />
+
       </Routes>
     </>
   );

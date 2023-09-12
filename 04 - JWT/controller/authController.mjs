@@ -15,11 +15,11 @@ class authController {
         const user = new Users({
             name: name,
             password: passwordHash
-        })
+        });
 
         try {
             const userr = await user.save();
-            res.status(200).send(userr)
+            res.status(200).send(userr);
         } catch (error) {
             res.status(500).send({ error: error })
         }
