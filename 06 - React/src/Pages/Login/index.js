@@ -15,11 +15,12 @@ export default function Login() {
         if (!password || !name)
             return;
 
+        var encryptPassword = CryptoJS.AES.encrypt(password, 'testeafssdfsdfewfersdfsdffd').toString(); // TODO: .env
         try {
             const res = await axios.post('http://localhost:1000/auth/login', { name: name, password: password })
             sessionStorage.setItem('token', res.data.token);
             setNotFound(false);
-            navigate('home');
+            navigate('Home');
 
         } catch (error) {
             setNotFound(true);

@@ -8,7 +8,7 @@ export default function NavBar() {
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
-                    <NavLink to="/">
+                    <NavLink to="/Home">
                         <Navbar.Brand>HomePage</Navbar.Brand>
                     </NavLink>
                     <NavLink to="/ToDoList">

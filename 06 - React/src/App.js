@@ -14,7 +14,7 @@ import Countries from './Pages/Countries';
 import Register from './Pages/Register';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './Pages/Login';
-import Denied from './Pages/Denied';
+import Denied from './components/Denied';
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
           <Route path='Coffee' element={<Coffe />} />
           <Route path='CountriesAPI' element={<Countries />} />
           <Route path='Register' element={<Register />} />
-          <Route path='home' element={<HomePage />} />
+          <Route path='Home' element={<HomePage />} />
         </Route>
 
         <Route path='*' element={<NotFoundPage />} />
